@@ -11,5 +11,7 @@ import com.sportcenter.model.Ruolo;
 
 @Repository
 public interface RuoloRepository extends JpaRepository<Ruolo, Long> {
+    Ruolo findByRuolo = null;
+
     Optional<Ruolo> findByRuolo(String ruolo);
 }

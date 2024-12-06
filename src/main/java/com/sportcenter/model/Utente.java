@@ -2,9 +2,11 @@
 package com.sportcenter.model;
 
 
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -29,13 +31,13 @@ public class Utente {
    
     
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "user_roles", // Nome della tabella di join
         joinColumns = @JoinColumn(name = "user_id"), // Colonna di join per User
         inverseJoinColumns = @JoinColumn(name = "role_id") // Colonna di join per Role
     )
-    private Set<Ruolo> ruolo;
+    private Set<Ruolo> ruolo = new HashSet<>();
 
     // Getter e Setter
 
